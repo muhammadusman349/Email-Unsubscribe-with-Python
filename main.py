@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 from extract_links import extract_links_from_html
 from click_links import click_links
-from save_links import save_links
+from save_links import save_links_to_excel, save_links
 load_dotenv()
 
 username = os.getenv('EMAIL')
@@ -52,5 +52,7 @@ links = search_emails()
 for link in links:
     click_links(link)
 
-# Save the links to a file
+# Save the links to Excel file
+save_links_to_excel(links)
+# Save the links to text file
 save_links(links)
